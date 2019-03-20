@@ -78,7 +78,7 @@ class Game:
     def check_input(self):
         """Check for input and modify the game state accordingly."""
         if not self.death:
-            if pyxel.btn(pyxel.KEY_UP):
+            if pyxel.btn(pyxel.KEY_UP) or pyxel.btn(pyxel.KEY_W):
                 if not self.ship.accelerating:
                     sound.start_accelerate()
                 self.ship.accelerate()
@@ -95,9 +95,9 @@ class Game:
             else:
                 self.ship.no_shoot()
 
-            if pyxel.btn(pyxel.KEY_LEFT):
+            if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_A):
                 self.ship.rotate("l")
-            elif pyxel.btn(pyxel.KEY_RIGHT):
+            elif pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
                 self.ship.rotate("r")
         elif pyxel.btnp(pyxel.KEY_R):
             self.reset_game()
